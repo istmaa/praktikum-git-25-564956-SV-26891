@@ -21,7 +21,8 @@ Website dibuat menggunakan **HTML, CSS (Bootstrap), dan JavaScript** dengan fitu
 
 ## C. Tampilan Halaman
 
-![Landing Page](<img width="1918" height="922" alt="Screenshot 2026-05-04 224722" src="https://github.com/user-attachments/assets/ca81b573-0daf-4e6d-a1c0-46a726bd61ef" />
+![Landing Page](<img width="1918" height="922" alt="landing" src="https://github.com/user-attachments/assets/bce224dd-d014-42e1-be6a-3a6a61b787c6" />
+
 )
 
 ---
@@ -47,22 +48,26 @@ Website dibuat menggunakan **HTML, CSS (Bootstrap), dan JavaScript** dengan fitu
 
 ### 1. Git Log
 
-![Git Log](<img width="1919" height="1023" alt="git log" src="https://github.com/user-attachments/assets/7204cb9f-d76b-469b-9cb6-4b8d14d652b1" />
+![Git Log](<img width="1919" height="1023" alt="git-log" src="https://github.com/user-attachments/assets/46106426-a9dd-46c1-888f-2f9330ec4fbb" />
+
 )
 
 ### 2. Pull Request
 
-![Pull Request](<img width="1919" height="960" alt="pull request" src="https://github.com/user-attachments/assets/f27af8f9-bc21-4877-8f90-04fb646253d4" />
+![Pull Request](<img width="1919" height="960" alt="pull-request" src="https://github.com/user-attachments/assets/0e6f363b-041c-4e0f-815f-00421babafb4" />
+
 )
 
 ### 3. Branch Protection Rule
 
-![Branch Protection](<img width="1918" height="978" alt="branch" src="https://github.com/user-attachments/assets/f2085a36-85b3-4d5d-be97-6a30bb38e52f" />
+![Branch Protection](<img width="1918" height="978" alt="branch-protection" src="https://github.com/user-attachments/assets/504dff36-dabb-42da-bd04-dbe06638e2b7" />
+
 )
 
 ### 4. History Commit GitHub
 
-![Commits](<img width="1913" height="955" alt="commit" src="https://github.com/user-attachments/assets/b3e3cb08-d4c1-4a23-ac9a-9a1713788ccb" />
+![Commits](<img width="1913" height="955" alt="commits" src="https://github.com/user-attachments/assets/234b945c-a8f4-4b79-8a48-bc171a4c0ed5" />
+
 )
 
 ---
