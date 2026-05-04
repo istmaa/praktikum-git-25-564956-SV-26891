@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteamRent - Premium Edition</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           1. PENGATURAN TEMA DASAR
+           ========================================== */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0f14;
+            color: #ffffff;
+        }
+
+        /* Aksen Warna SteamRent */
+        .text-accent { color: #38bdf8 !important; }
+        .bg-accent { background-color: #38bdf8 !important; color: #0b0f14 !important; }
+        .bg-accent:hover { background-color: #0ea5e9 !important; color: #0b0f14 !important; }
+
+        /* ==========================================
+           2. SIDEBAR & NAVIGASI
+           ========================================== */
+        .sidebar {
+            background-color: #121820;
+            border-right: 1px solid #1f2937;
+        }
+        
+        @media (min-width: 768px) {
+            .sidebar { width: 260px; height: 100vh; position: sticky; top: 0; }
+        }
+
+        @media (max-width: 767px) {
+            .sidebar { border-right: none; border-bottom: 1px solid #1f2937; }
+        }
+
+        /* Gaya Menu Navigasi */
+        .nav-item-custom { 
+            transition: all 0.3s ease; 
+            border-left: 3px solid transparent; /* Garis transparan default */
+        }
+        
+        .nav-item-custom:hover {
+            background-color: #1f2937 !important;
+            color: #ffffff !important;
+            border-left: 3px solid #4b5563; /* Garis abu-abu saat dihover */
+        }
+
+        /* Menu yang Sedang Aktif */
+        .nav-item-custom.active {
+            background-color: #1f2937 !important;
+            color: #ffffff !important;
+            border-left: 3px solid #38bdf8 !important; /* Garis biru terang */
+        }
+
+        /* Kotak Profil User */
+        .user-box {
+            background-color: #1a222d;
+            border: 1px solid #2a374a;
+            transition: 0.3s;
+        }
+        .user-box:hover { background-color: #1f2937; border-color: #38bdf8; cursor: pointer;}
+
+        /* ==========================================
+           3. KONTEN UTAMA (KARTU & BANNER)
+           ========================================== */
+        .hero-banner {
+            background: linear-gradient(to right, rgba(11, 15, 20, 0.95) 20%, rgba(11, 15, 20, 0.1)), 
+                        url('https://i.pinimg.com/736x/71/09/6a/71096ac2d345be5f5835aa02bb19d020.jpg');
+            background-size: cover;
+            background-position: center 20%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid #1f2937;
+        }
+
+        /* Desain Game Card */
+        .game-card {
+            background-color: #121820;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative; /* Agar badge bisa absolute di dalam kartu */
+        }
+        
+        .game-card:hover {
+            background-color: #1f2937;
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+        }
+
+        .card-img-custom {
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Label Badge di ujung kartu */
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+
+        /* Placeholder untuk Rilis Terbaru */
+        .empty-image {
+            height: 220px;
+            background-color: #1a222d; 
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            border: 2px dashed #2a374a; 
+            transition: 0.3s;
+        }
+        .game-card:hover .empty-image {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body class="min-vh-100">
+
+    <div class="d-flex flex-column flex-md-row min-vh-100">
+
+        <aside class="sidebar p-4 d-flex flex-column flex-shrink-0">
+            <div class="mb-4 text-center text-md-start">
+                <h2 class="fw-bold m-0 text-white">Steam<span class="text-accent">Rent</span></h2>
+            </div>
+            
+            <div class="user-box p-3 mb-4 rounded-3 d-flex align-items-center gap-3">
+                <i class="bi bi-person-circle fs-2 text-secondary"></i>
+                <div class="text-start">
+                    <div class="fw-bold text-white lh-1">Username</div>
+                    <small class="text-accent fw-semibold" style="font-size: 12px;">Rp -</small>
+                </div>
+            </div>
+
+            <nav class="nav flex-column gap-2 mb-auto text-center text-md-start">
+                <a class="nav-link nav-item-custom active text-white px-3 py-2 rounded-2 d-flex align-items-center justify-content-center justify-content-md-start gap-2" href="#">
+                    <i class="bi bi-house-door-fill"></i> Beranda
+                </a>
+                <a class="nav-link nav-item-custom text-secondary px-3 py-2 rounded-2 d-flex align-items-center justify-content-center justify-content-md-start gap-2" href="#">
+                    <i class="bi bi-fire"></i> Sedang Tren
+                </a>
+                <a class="nav-link nav-item-custom text-secondary px-3 py-2 rounded-2 d-flex align-items-center justify-content-center justify-content-md-start gap-2" href="#">
+                    <i class="bi bi-controller"></i> Kategori Genre
+                </a>
+                <a class="nav-link nav-item-custom text-secondary px-3 py-2 rounded-2 d-flex align-items-center justify-content-center justify-content-md-start gap-2" href="#">
+                    <i class="bi bi-collection-play-fill"></i> Koleksi Game
+                </a>
+            </nav>
+            
+            <a href="#" class="mt-4 text-danger text-decoration-none fw-medium text-center text-md-start px-3 py-2 rounded-2 w-100 d-flex align-items-center justify-content-center justify-content-md-start gap-2" style="background-color: rgba(239, 68, 68, 0.1); transition: 0.3s;">
+                <i class="bi bi-box-arrow-left"></i> Keluar Akun
+            </a>
+        </aside>
+
+        <main class="flex-grow-1 p-4 p-md-5 overflow-auto">
+            
+            <div class="hero-banner p-4 p-md-5 mb-5 rounded-4 d-flex align-items-center" style="min-height: 380px;">
+                <div style="max-width: 550px;">
+                    <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill"><i class="bi bi-star-fill text-warning me-1"></i> Rekomendasi Game</span>
+                    <h1 class="display-5 fw-bold text-white mb-3 lh-sm">Cyberpunk 2077</h1>
+                    <p class="text-light mb-4" style="font-size: 16px; opacity: 0.9;">
+                        Selamat datang di Night City. Sewa mahakarya ini sekarang dan rasakan pengalaman RPG open-world terbaik dengan kualitas grafis memukau tanpa harus membeli penuh.
+                    </p>
+                    <button class="btn bg-accent fw-bold px-4 py-2 rounded-3 shadow-sm d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-play-circle-fill"></i> Sewa - Rp 10.000/jam
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <h4 class="fw-bold m-0"><i class="bi bi-lightning-charge-fill text-warning me-2"></i>Terpopuler Saat Ini</h4>
+                <a href="#" class="text-accent text-decoration-none small fw-semibold">Lihat Semua <i class="bi bi-arrow-right"></i></a>
+            </div>
+
+            <div class="row g-4 mb-5">
+                
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <span class="badge bg-danger card-badge rounded-1 shadow-sm">HOT</span>
+                        <img src="https://i.pinimg.com/1200x/cc/b6/f0/ccb6f0689bcaa9b205f6593cc6a4182c.jpg" class="card-img-custom w-100 mb-3" alt="Elden Ring">
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Elden Ring</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Action RPG</span>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-accent fs-6">Rp 12k <small class="text-secondary fw-normal">/jam</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <span class="badge bg-warning text-dark card-badge rounded-1 shadow-sm">TRENDING</span>
+                        <img src="https://i.pinimg.com/1200x/af/bf/cf/afbfcfcaf49486a63eafbd6e845beccf.jpg" class="card-img-custom w-100 mb-3" alt="Hogwarts Legacy">
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Hogwarts Legacy</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Adventure / Magic</span>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-accent fs-6">Rp 10k <small class="text-secondary fw-normal">/jam</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <img src="https://i.pinimg.com/1200x/d2/8c/dc/d28cdcf5a3fcfc176958b6eb54082b4a.jpg" class="card-img-custom w-100 mb-3" alt="Call of Duty">
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Call of Duty</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> FPS Shooter</span>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-accent fs-6">Rp 8k <small class="text-secondary fw-normal">/jam</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <img src="https://i.pinimg.com/1200x/8e/f4/e5/8ef4e5916ccaf13d64efd77e4962e304.jpg" class="card-img-custom w-100 mb-3" alt="Spider-Man">
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Marvel's Spider-Man</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Action / Story</span>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-accent fs-6">Rp 10k <small class="text-secondary fw-normal">/jam</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-between align-items-end mb-4 mt-5">
+                <h4 class="fw-bold m-0"><i class="bi bi-calendar-star-fill text-success me-2"></i>Rilis Terbaru</h4>
+            </div>
+
+            <div class="row g-4 mb-5">
+                
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <span class="badge bg-primary card-badge rounded-1 shadow-sm">NEW</span>
+                        <div class="empty-image w-100 mb-3">
+                            <i class="bi bi-image fs-2 mb-2"></i>
+                            <span>Poster Belum Ada</span>
+                        </div>
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Tekken 8</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Fighting</span>
+                            <div class="mt-auto fw-bold text-accent fs-6">Rp 9k <small class="text-secondary fw-normal">/jam</small></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <span class="badge bg-primary card-badge rounded-1 shadow-sm">NEW</span>
+                        <div class="empty-image w-100 mb-3">
+                            <i class="bi bi-image fs-2 mb-2"></i>
+                            <span>Poster Belum Ada</span>
+                        </div>
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">Resident Evil 4</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Horror / Survival</span>
+                            <div class="mt-auto fw-bold text-accent fs-6">Rp 8k <small class="text-secondary fw-normal">/jam</small></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <div class="empty-image w-100 mb-3">
+                            <i class="bi bi-image fs-2 mb-2"></i>
+                            <span>Poster Belum Ada</span>
+                        </div>
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">FC 24 (FIFA)</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Sports</span>
+                            <div class="mt-auto fw-bold text-accent fs-6">Rp 7k <small class="text-secondary fw-normal">/jam</small></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                    <div class="game-card p-2 h-100 d-flex flex-column">
+                        <div class="empty-image w-100 mb-3">
+                            <i class="bi bi-image fs-2 mb-2"></i>
+                            <span>Poster Belum Ada</span>
+                        </div>
+                        <div class="px-2 pb-2 d-flex flex-column flex-grow-1">
+                            <h6 class="fw-bold text-white mb-1">God of War</h6>
+                            <span class="text-secondary small mb-3"><i class="bi bi-tags-fill me-1"></i> Action / Adventure</span>
+                            <div class="mt-auto fw-bold text-accent fs-6">Rp 11k <small class="text-secondary fw-normal">/jam</small></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pb-5"></div>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
